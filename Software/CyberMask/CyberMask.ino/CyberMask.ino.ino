@@ -1,12 +1,13 @@
 //setup the pins
 int buzzer = 1;
-int buzzer1 = 1;
+int buzzer1 = 4;
 int sensorValue = 0;
 
 // the setup function runs once when you reset or power the board
 void setup() {
   // initialize buzzer as an output.
   pinMode(buzzer, OUTPUT);
+    pinMode(buzzer1, OUTPUT);
   pinMode(2, INPUT);
   
 }
@@ -19,22 +20,25 @@ sensorValue = analogRead(1);
   
   // make 3 dots to make an S
   for (int a = 0; a < 3; a++) {
-    dot();
+    dot1();
+  //  dot();
   }
   // wait 100 miliseconds after the first S
   delay(100);
   // make 3 dashes to make an o
   for (int b = 0; b < 3; b++) {
-    dash();
+    dash1();
+  //  dash();
   }
   // wait 100 miliseconds after the o
   delay(100);
   // make 3 dots to make an S
   for (int c = 0; c < 3; c++) {
-    dot();
+    dot1();
+  //  dot();
   }
   //wait 5 seconds before playing again
-  delay(5000);
+  delay(1000);
 }else{
   dot();
   delay(1000);
@@ -65,9 +69,21 @@ void dash1()
 {
   // turn on the buzzer
   digitalWrite(buzzer1, HIGH);
+   digitalWrite(buzzer, HIGH);
   delay(300);
   // turn off the buzzer
   digitalWrite(buzzer1, LOW);
+   digitalWrite(buzzer, LOW);
   delay(100);
 }
-
+void dot1()
+{
+  //turn on the buzzer
+  digitalWrite(buzzer1, HIGH);
+   digitalWrite(buzzer, HIGH);
+  delay(100);
+  // turn off the buzzer
+  digitalWrite(buzzer1, LOW);
+   digitalWrite(buzzer, LOW);
+  delay(100);  
+}
